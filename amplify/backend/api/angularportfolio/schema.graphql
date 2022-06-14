@@ -1,0 +1,9 @@
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Restaurant @model {
+  id: ID!
+  name: String!
+  email: String!
+  description: String!
+  city: String!
+}

@@ -1,0 +1,58 @@
+@import "~@aws-amplify/ui-angular/theme.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.container {
+  background-color: #f6f6f6;
+  height: 100%;
+  font-family: "Montserrat", "Roboto", sans-serif;
+
+  h1 {
+    font-family: "Montserrat", "Roboto", sans-serif;
+    font-size: 2.5rem;
+    padding: 0.5rem 0 1rem;
+  }
+
+  h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    padding: 0.25rem 0 0.5rem;
+  }
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.button {
+  padding: 1rem 0.5rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.card {
+  &--input {
+    max-width: 600px;
+    margin: 40px auto;
+  }
+}
+
+.align-center {
+    text-align: center;
+}
