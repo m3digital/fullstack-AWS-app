@@ -1,5 +1,3 @@
-@import "~@aws-amplify/ui-angular/theme.css";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .container {
@@ -41,7 +39,7 @@ table {
 }
 
 .button {
-  padding: 1rem 0.5rem;
+  padding: 0.75rem 0.5rem;
   text-transform: uppercase;
   font-size: 1rem;
 }

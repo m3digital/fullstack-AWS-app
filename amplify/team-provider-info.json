@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "angularportfoliof9dc8152": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3mlv1b6p0exhx",
+          "type": "manual"
+        }
       }
     }
   }
