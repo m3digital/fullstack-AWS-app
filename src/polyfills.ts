@@ -44,6 +44,11 @@
 // aws-sdk requires global to exist
 (window as any).global = window;
 
+// fix warnings with auth
+import 'zone.js/dist/zone'; // Included with Angular CLI.
+
+(window as any).Zone['__zone_symbol__ignoreConsoleErrorUncaughtError'] = true;
+
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */

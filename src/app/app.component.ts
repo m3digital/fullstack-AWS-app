@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroupDirective, NgForm, FormGroup, Validators } from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { APIService, Restaurant } from './API.service';
  
@@ -16,14 +18,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   displayedColumns: string[] = ['name', 'email', 'description', 'city'];
   errorMatcher = new MyErrorStateMatcher();
   myFormControl: FormControl;
   title = 'angular-portfolio';
   public createForm: FormGroup;
-  public restaurants: Array<Restaurant> = [];
+  public dataSource = new MatTableDataSource<Restaurant>([]);
   private subscription: Subscription | null = null;
+  @ViewChild(MatPaginator) private paginator!: MatPaginator;
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
@@ -38,15 +41,19 @@ export class AppComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     /* fetch restaurants when app loads */
     this.api.ListRestaurants().then((event) => {
-      this.restaurants = event.items as Restaurant[];
+      this.dataSource.data = event.items as Restaurant[];
     });
 
     this.subscription = <Subscription>(
       this.api.OnCreateRestaurantListener.subscribe((event: any) => {
-        const newRestaurant = event.value.data.onCreateRestaurant;
-        this.restaurants = [newRestaurant, ...this.restaurants];
+        const newData = event.value.data.onCreateRestaurant;
+        this.dataSource.data = [newData, ...this.dataSource.data];
       })
     );
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnDestroy() {
