@@ -1,7 +1,7 @@
 <amplify-authenticator [formFields]="formFields" [services]="services">
     <ng-template amplifySlot="header">
         <div style="padding: var(--amplify-space-large); text-align: center">
-            <img class="amplify-image" alt="Amplify logo" src="https://docs.amplify.aws/assets/logo-dark.svg" />
+            <img class="amplify-image" alt="Amplify logo" src="/assets/awc-logo-desktop-1024x332.png" />
         </div>
     </ng-template>
 
@@ -119,5 +119,6 @@
                 <button (click)="signOut()">Sign Out</button>
             </mat-toolbar>
         </p>
+        <ng-content></ng-content>
     </ng-template>
 </amplify-authenticator>

@@ -1,8 +1,7 @@
-amplify-authenticator {
+::ng-deep [data-amplify-authenticator] {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    max-width: 400px;
     height: 100%;
-  }
+}
