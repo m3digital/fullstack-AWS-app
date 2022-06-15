@@ -1,35 +1,31 @@
 <div class="container">
-    <!-- TODO: add once auth is completed -->
-    <!-- <p>
-            <mat-toolbar>
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <h3>Welcome, {{ user.username }}!</h3>
-                <span class="example-spacer"></span>
-                <button mat-button-raised color="primary" routerLink="/" (click)="signOut()">Sign Out</button>
-            </mat-toolbar>
-        </p> -->
     <h2 class="align-center">Restaurants:</h2>
-    <div class="table-container">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="table-container mat-elevation-z8">
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <button matPrefix mat-icon-button class="custom-prefix">
+                <mat-icon>filter_list</mat-icon>
+            </button>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. burger" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
                 <td mat-cell *matCellDef="let restaurant"> {{restaurant.name}} </td>
             </ng-container>
 
             <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
                 <td mat-cell *matCellDef="let restaurant"> {{restaurant.email}} </td>
             </ng-container>
 
             <ng-container matColumnDef="city">
-                <th mat-header-cell *matHeaderCellDef> City </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
                 <td mat-cell *matCellDef="let restaurant"> {{restaurant.city}} </td>
             </ng-container>
 
             <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
                 <td mat-cell *matCellDef="let restaurant"> {{restaurant.description}} </td>
             </ng-container>
 
@@ -43,8 +39,8 @@
         <mat-card-title>Add New Restaurant</mat-card-title>
         <mat-card-subtitle>Enter Details Below:</mat-card-subtitle>
         <mat-card-content>
-            <form class="example-form" autocomplete="off" [formGroup]="createForm">
-                <mat-form-field class="example-full-width" appearance="fill">
+            <form class="input_form" autocomplete="off" [formGroup]="createForm">
+                <mat-form-field class="input_full-width" appearance="fill">
                     <mat-label>Name: </mat-label>
                     <input type="text" matInput formControlName="name" [errorStateMatcher]="errorMatcher"
                         autocomplete="off" />
@@ -52,7 +48,7 @@
                         Name is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="input_full-width" appearance="fill">
                     <mat-label>Email</mat-label>
                     <input type="email" matInput formControlName="email" [errorStateMatcher]="errorMatcher"
                         placeholder="Ex. user@example.com">
@@ -64,7 +60,7 @@
                         Email is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="input_full-width" appearance="fill">
                     <mat-label>Description: </mat-label>
                     <input type="text" matInput formControlName="description" [errorStateMatcher]="errorMatcher"
                         autocomplete="off" />
@@ -72,7 +68,7 @@
                         Description is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="input_full-width" appearance="fill">
                     <mat-label>City: </mat-label>
                     <input type="text" matInput formControlName="city" [errorStateMatcher]="errorMatcher"
                         autocomplete="off" />

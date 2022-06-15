@@ -10,11 +10,11 @@
         <!-- Re-use default `Authenticator.SignUp.FormFields` -->
         <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
 
-        <!-- Append & require Terms & Conditions field to sign up -->
-        <amplify-checkbox [errorMessage]="validationErrors.acknowledgement"
+        <!-- [ DISABLED ] - Append & require Terms & Conditions field to sign up -->
+        <!-- <amplify-checkbox [errorMessage]="validationErrors.acknowledgement"
             [hasError]="!!validationErrors.acknowledgement" name="acknowledgement" value="yes">
-            I agree with the Terms & Conditions
-        </amplify-checkbox>
+            I agree with the <strong>Terms & Conditions</strong>
+        </amplify-checkbox> -->
     </ng-template>
 
     <ng-template amplifySlot="sign-in-header">
@@ -109,16 +109,11 @@
     </ng-template>
 
     <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
-        <p>
-            <mat-toolbar>
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <h3>Welcome, {{ user.username }}!</h3>
-                <span class="example-spacer"></span>
-                <button (click)="signOut()">Sign Out</button>
-            </mat-toolbar>
-        </p>
-        <ng-content></ng-content>
+            <app-menu [username]="user.username">
+                <button menu-button (click)="signOut()">Sign Out</button>
+                <ng-container app-body>
+                    <app-dashboard></app-dashboard>
+                </ng-container>
+            </app-menu>
     </ng-template>
 </amplify-authenticator>

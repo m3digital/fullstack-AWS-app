@@ -1,66 +1,53 @@
-html,
-body {
-  height: 100%;
-}
-
 .container {
     background-color: #f6f6f6;
     padding: 32px;
-    font-family: "Montserrat", "Roboto", sans-serif;
-  
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+
     h1 {
-      font-family: "Montserrat", "Roboto", sans-serif;
-      font-size: 2.5rem;
-      padding: 0.5rem 0 1rem;
+        font-family: 'Montserrat', 'Roboto', sans-serif;
+        font-size: 2.5rem;
+        padding: 0.5rem 0 1rem;
     }
-  
+
     h2 {
-      font-family: "Roboto", sans-serif;
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 8px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 8px;
     }
-  }
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
-  .table-container {
-      position: relative;
-      min-height: 200px;
-      max-height: 400px;
-      max-width: 800px;
-      margin: 24px auto;
-      overflow: auto;
-  }
-    
-  table {
-    width: 100%;
-  }
-  
-  .button {
-    padding: 1rem 0.5rem;
-    text-transform: uppercase;
-    font-size: 1rem;
-  }
-  
-  .card {
-    &--input {
-      max-width: 600px;
-      margin: 40px auto;
+
+    .align-center {
+        text-align: center;
     }
-  }
-  
-  .align-center {
-      text-align: center;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
+
+    .input {
+        &_form {
+            min-width: 150px;
+            max-width: 500px;
+            width: 100%;
+        }
+        &_full-width {
+            width: 100%;
+        }
+    }
+
+    .table-container {
+        position: relative;
+        max-width: 800px;
+        margin: 24px auto;
+        overflow: auto;
+        .mat-form-field {
+            width: 100%;
+            ::ng-deep .mat-form-field-prefix {
+                display: flex;
+                align-self: flex-end;
+            }
+            &-label {
+                vertical-align: middle;
+            }
+        }
+        table {
+            width: 100%;
+        }
+    }
+}

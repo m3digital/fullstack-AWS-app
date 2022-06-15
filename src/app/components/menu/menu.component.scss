@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+
+mat-toolbar {
+    background-color: #ffffff;
+    z-index: 10;
+    @include mat.elevation-transition();
+    @include mat.elevation(3);
+
+    &:hover {
+        @include mat.elevation(8);
+    }
+    .menu-spacer {
+        flex: 1 1 auto;
+    }
+}
+
+.mat-drawer {
+    &_container {
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &_sidenav {
+        padding: 20px;
+    }
+}

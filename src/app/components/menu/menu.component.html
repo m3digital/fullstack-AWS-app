@@ -1,0 +1,14 @@
+<mat-drawer-container class="mat-drawer_container" autosize>
+    <mat-drawer #drawer class="mat-drawer_sidenav" mode="side">
+        <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-toolbar>
+        <button mat-icon-button type="button" aria-label="open sidenav" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h3>Welcome, {{ username }}!</h3>
+        <span class="menu-spacer"></span>
+        <ng-content select="[menu-button]"></ng-content>
+    </mat-toolbar>
+    <ng-content select="[app-body]"></ng-content>
+</mat-drawer-container>

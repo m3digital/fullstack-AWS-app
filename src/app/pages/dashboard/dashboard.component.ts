@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroupDirective, NgForm, FormGroup, Valida
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
 import { APIService, Restaurant } from '../../API.service';
  
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public dataSource = new MatTableDataSource<Restaurant>([]);
   private subscription: Subscription | null = null;
   @ViewChild(MatPaginator) private paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
@@ -54,6 +56,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   ngOnDestroy() {
@@ -61,6 +64,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.subscription.unsubscribe();
     }
     this.subscription = null;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   public onCreate(restaurant: Restaurant) {
