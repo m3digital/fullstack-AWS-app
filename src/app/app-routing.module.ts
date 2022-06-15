@@ -4,7 +4,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-    { path: 'home', component: DashboardComponent },
+    { path: 'home', component: AuthComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', redirectTo: '/home' },
 ];
