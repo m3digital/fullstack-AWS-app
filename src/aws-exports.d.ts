@@ -1,2 +1,2 @@
-declare const awsmobile: Record<string, any>
+declare const awsmobile: Record<string, any>;
 export default awsmobile;
