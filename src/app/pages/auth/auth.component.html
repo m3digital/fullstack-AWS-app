@@ -126,7 +126,7 @@
     </ng-template>
 
     <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
-        <app-menu [username]="currentUser.username">
+        <app-menu [username]="user.username">
             <button menu-button mat-raised-button (click)="signOut()">Sign Out</button>
             <ng-container app-body>
                 <app-dashboard></app-dashboard>

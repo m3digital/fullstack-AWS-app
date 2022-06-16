@@ -6,7 +6,7 @@
         <button mat-icon-button type="button" aria-label="open sidenav" (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
-        <h3>Welcome, {{ username }}!</h3>
+        <h3>Welcome, {{ username | titlecase }}!</h3>
         <span class="menu-spacer"></span>
         <ng-content select="[menu-button]"></ng-content>
     </mat-toolbar>

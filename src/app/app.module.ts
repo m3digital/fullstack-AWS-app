@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
@@ -25,6 +26,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     declarations: [AppComponent, AuthComponent, DashboardComponent, MenuComponent, SidenavComponent],
     imports: [
         BrowserModule,
+        CommonModule,
         AppRoutingModule,
         AmplifyAuthenticatorModule,
         FormsModule,
