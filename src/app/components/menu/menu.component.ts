@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
     @Input() username = 'User';
+
     constructor() {}
 
     ngOnInit(): void {}

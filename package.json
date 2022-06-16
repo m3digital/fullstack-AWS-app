@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prettier:check": "npx prettier --config .prettierrc --check ./src/**/*.{ts,js,json,scss,html}",
-    "prettier:write": "npx prettier --config .prettierrc --write ./src/**/*.{ts,js,json,scss,html}"
+    "prettier:check": "npx prettier --config .prettierrc --check \"src/**/*.{ts,js,json,scss,html}\"",
+    "prettier:clean": "npx prettier --config .prettierrc --write \"src/**/*.{ts,js,json,scss,html}\""
   },
   "private": true,
   "dependencies": {
@@ -51,6 +51,6 @@
     }
   },
   "lint-staged": {
-    "./src/**/*.{ts,js,json,scss,html}": "npm run prettier:check"
+    "src/**/*.{ts,js,json,scss,html}": "npm run prettier:check"
   }
 }

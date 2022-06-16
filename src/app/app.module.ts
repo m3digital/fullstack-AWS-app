@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -33,6 +34,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
         MatCardModule,
         MatIconModule,
         MatInputModule,
+        MatListModule,
         MatPaginatorModule,
         MatSidenavModule,
         MatSortModule,

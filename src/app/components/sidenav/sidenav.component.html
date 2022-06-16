@@ -1,1 +1,7 @@
-<p>Auto-resizing sidenav</p>
+<mat-nav-list>
+    <ng-container *ngFor="let app of apps; let last = last">
+        <a mat-list-item *ngIf="!app.fn" [routerLink]="app.link">{{ app.name }} </a>
+        <a mat-list-item *ngIf="app.fn" (click)="app.fn()">{{ app.name }}</a>
+        <mat-divider *ngIf="!last"></mat-divider>
+    </ng-container>
+</mat-nav-list>
